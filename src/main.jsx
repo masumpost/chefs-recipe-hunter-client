@@ -8,12 +8,13 @@ import {
 } from "react-router-dom";
 import Header from './components/Header/Header.jsx';
 import Login from './components/login/login/Login.jsx';
+import Main from './components/Layouts/Main.jsx';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Header></Header>
+    element: <Main></Main>
   },
   {
     path:'/login',
