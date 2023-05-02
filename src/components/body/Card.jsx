@@ -14,10 +14,10 @@ const Card = ({ chef }) => {
       <div className="card-body">
         <h2 className="card-title">{name}</h2>
         <p>Experience : {years_of_experience}</p>
-        <p>Number of recipes {number_of_recipes}</p>
-        <p>Like{likes}</p>
+        <p>Number of recipes : {number_of_recipes}</p>
+        <p>Likes : {likes}</p>
         <div className="card-actions justify-end">
-          <button className="btn btn-primary">Buy Now</button>
+          <button className="btn btn-primary">View Recipes</button>
         </div>
       </div>
     </div>
