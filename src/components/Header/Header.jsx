@@ -14,13 +14,11 @@ const Header = () => {
         <div className="hero-overlay bg-opacity-60"></div>
         <div className="hero-content text-center text-neutral-content">
           <div className="max-w-md">
-            <h1 className="mb-5 text-5xl font-bold text-center">Hello there</h1>
+            <h1 className="mb-5 text-5xl font-bold text-center">CHEF'S RECIPE</h1>
             <p className="mb-5">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
+              This is a wonderful recipes showcase . You can find here different type of recipe and if you need to find a awesome and expert international chef then you can do it.
             </p>
-            <button className="btn btn-primary">Get Started</button>
+            <button className="btn btn-primary">Let's Explore</button>
           </div>
         </div>
       </div>
