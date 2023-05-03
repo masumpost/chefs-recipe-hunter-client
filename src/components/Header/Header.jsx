@@ -4,7 +4,6 @@ import Navbar from "./Navbar";
 const Header = () => {
   return (
     <div>
-        <Navbar></Navbar>
       <div
         className="hero min-h-screen"
         style={{

@@ -1,5 +1,6 @@
 import React from "react";
 import {  FaUserCircle } from 'react-icons/fa';
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -27,10 +28,10 @@ const Navbar = () => {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <a>Home</a>
+              <Link to="/">Home</Link>
             </li>
             <li>
-                <a>Blogs</a>
+               <Link to="/blogs">Blogs</Link>
             </li>
             <li>
               <a>About</a>
@@ -42,10 +43,10 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <a>Home</a>
+              <Link to="/">Home</Link>
           </li>
           <li>
-            <a>Blog</a>
+            <Link to="/blogs">Blog</Link>
           </li>
           <li>
             <a>About</a>
@@ -54,7 +55,7 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         <FaUserCircle className="text-4xl mr-3"></FaUserCircle>
-        <a className="btn">login</a>
+        <Link className="btn" to="/login">login</Link>
       </div>
     </div>
   );
