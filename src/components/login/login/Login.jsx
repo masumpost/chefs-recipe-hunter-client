@@ -48,7 +48,7 @@ const Login = () => {
               <button className="btn btn-primary">Login</button>
             </div>
           </div>
-          <p className="my-4 ml-8"><small>Dont't Have an account?<Link to="/register">Register</Link></small></p>
+          <p className="my-4 ml-8"><small>Dont't Have an account?<Link to="/register"> Register</Link></small></p>
         </div>
       </div>
     </div>
