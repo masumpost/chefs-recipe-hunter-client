@@ -1,14 +1,15 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider";
-import { GoogleAuthProvider } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 
 
 
 const Register = () => {
-    const {createUser, googleRegister} = useContext(AuthContext);
+    const {createUser, popupRegister} = useContext(AuthContext);
     const [error, setError] = useState('');
     const provider = new GoogleAuthProvider();
+    const gitProvider = new GithubAuthProvider();
 
     const handelRegister = (event) => {
         event.preventDefault();
@@ -34,10 +35,20 @@ const Register = () => {
     } 
 
     const googleSigned = () =>{
-        googleRegister(provider)
+        popupRegister(provider)
         .then(result => {
             const logged = result.user;
             console.log(logged);
+            setError('')
+        })
+        .catch(error => setError(error))
+    }
+
+    const gitSigned = () => {
+        popupRegister(gitProvider)
+        .then(result => {
+            const loggedG = result.user;
+            console.log(loggedG);
             setError('')
         })
         .catch(error => setError(error))
@@ -114,7 +125,7 @@ const Register = () => {
                 <p onClick={googleSigned} className="cursor-pointer">
                   <img src="google-signin-button.png" alt="" />
                 </p>
-                <p className="cursor-pointer">
+                <p onClick={gitSigned} className="cursor-pointer">
                   <img src="githubbtn.png" alt="" />
                 </p>
               </div>

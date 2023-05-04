@@ -16,7 +16,7 @@ const AuthProvider = ({children}) => {
         return signInWithEmailAndPassword(auth, email, password);
     }
 
-    const googleRegister = (provider) => {
+    const popupRegister = (provider) => {
         return signInWithPopup(auth, provider);
     }
 
@@ -24,7 +24,7 @@ const AuthProvider = ({children}) => {
         user,
         createUser,
         signIn,
-        googleRegister,
+        popupRegister,
     }
     return (
         <AuthContext.Provider value={authInfo}>
