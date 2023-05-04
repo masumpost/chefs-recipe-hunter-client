@@ -1,7 +1,29 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../AuthProvider";
+
+
 
 const Login = () => {
+
+  const {signIn} = useContext(AuthContext);
+  const [error, setError] = useState('')
+  const handelLogin = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    signIn(email, password)
+    .then(result =>{
+      const loggedUser = result.user;
+      console.log(loggedUser)
+      setError('')
+    })
+    .catch(error => setError(error.message))
+    console.log(email, password);
+    form.reset();
+  }
+
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col lg:flex-row-reverse">
@@ -14,41 +36,52 @@ const Login = () => {
           </p>
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-          <div className="card-body">
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Email</span>
-              </label>
-              <input
-                type="text"
-                placeholder="email"
-                className="input input-bordered"
-                name="email"
-                required
-              />
+          <form onSubmit={handelLogin}>
+            <div className="card-body">
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Email</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="email"
+                  className="input input-bordered"
+                  name="email"
+                  required
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Password</span>
+                </label>
+                <input
+                  type="password"
+                  placeholder="password"
+                  className="input input-bordered"
+                  name="password"
+                  required
+                />
+                <label className="label">
+                  <a href="#" className="label-text-alt link link-hover">
+                    Forgot password?
+                  </a>
+                </label>
+              </div>
+              <div className="form-control mt-6">
+                <button className="btn btn-primary">Login</button>
+              </div>
             </div>
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Password</span>
-              </label>
-              <input
-                type="password"
-                placeholder="password"
-                className="input input-bordered"
-                name="password"
-                required
-              />
-              <label className="label">
-                <a href="#" className="label-text-alt link link-hover">
-                  Forgot password?
-                </a>
-              </label>
-            </div>
-            <div className="form-control mt-6">
-              <button className="btn btn-primary">Login</button>
-            </div>
+          </form>
+          <p className="my-4 ml-8">
+            <small>
+              Dont't Have an account?<Link to="/register"> Register</Link>
+            </small>
+          </p>
+          <div className="my-4 ml-8 text-red-500">
+            <small>
+              <p>{error}</p>
+            </small>
           </div>
-          <p className="my-4 ml-8"><small>Dont't Have an account?<Link to="/register"> Register</Link></small></p>
         </div>
       </div>
     </div>

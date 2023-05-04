@@ -19,7 +19,7 @@ const ExtraPart = () => {
                 <div>
                     <h4 className='text-2xl font-semibold'>Most popular recipe <small>[hover on img]</small></h4>
                 </div>
-                <div className='flex gap-4'>
+                <div className='md:flex gap-4'>
                     <img src="butter.jpg" alt="" title='get the best quality butter'/>
                     <img src="bread.jpg" alt="" title='wow so testy bread'/>
                     <img src="salad.jpg" alt="" title='test the world class salad' />
