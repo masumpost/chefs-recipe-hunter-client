@@ -1,12 +1,14 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider";
+import { GoogleAuthProvider } from "firebase/auth";
 
 
 
 const Register = () => {
-    const {createUser} = useContext(AuthContext);
+    const {createUser, googleRegister} = useContext(AuthContext);
     const [error, setError] = useState('');
+    const provider = new GoogleAuthProvider();
 
     const handelRegister = (event) => {
         event.preventDefault();
@@ -27,7 +29,20 @@ const Register = () => {
         .catch(error => setError(error.message))
         form.reset();
         console.log(name, photo, email, password);
+
+       
     } 
+
+    const googleSigned = () =>{
+        googleRegister(provider)
+        .then(result => {
+            const logged = result.user;
+            console.log(logged);
+            setError('')
+        })
+        .catch(error => setError(error))
+    }
+
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col lg:flex-row-reverse">
@@ -96,7 +111,7 @@ const Register = () => {
                 <button className="btn btn-primary">Register</button>
               </div>
               <div>
-                <p className="cursor-pointer">
+                <p onClick={googleSigned} className="cursor-pointer">
                   <img src="google-signin-button.png" alt="" />
                 </p>
                 <p className="cursor-pointer">
