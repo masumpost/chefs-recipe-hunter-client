@@ -12,6 +12,7 @@ import Blogs from "./components/Blogs.jsx";
 import Register from "./components/login/register/Register.jsx";
 import Body from "./components/body/Body.jsx";
 import AuthProvider from "./components/AuthProvider.jsx";
+import ViewDetails from "./components/body/viewdetails.jsx";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
         path: "/register",
         element: <Register></Register>,
       },
+      {
+        path:"/vdetails",
+        element:<ViewDetails></ViewDetails>
+      }
     ],
   },
 ]);

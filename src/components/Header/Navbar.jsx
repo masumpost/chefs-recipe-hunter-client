@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import {  FaUserCircle } from 'react-icons/fa';
 import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
+
+
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -54,7 +56,7 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <FaUserCircle className="text-4xl mr-3"></FaUserCircle>
+       <FaUserCircle className="text-4xl mr-3"></FaUserCircle>
         <Link className="btn" to="/login">login</Link>
       </div>
     </div>
