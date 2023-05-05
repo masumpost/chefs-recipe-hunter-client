@@ -1,9 +1,18 @@
 import React, { useContext } from "react";
 import {  FaUserCircle } from 'react-icons/fa';
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../AuthProvider";
 
 const Navbar = () => {
 
+  const {user, logOut} = useContext(AuthContext);
+
+
+  const handelLogOut = () =>{
+    logOut()
+    .then()
+    .catch(error => console.log(error))
+  }
 
   return (
     <div className="navbar bg-base-100">
@@ -56,8 +65,13 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-       <FaUserCircle className="text-4xl mr-3"></FaUserCircle>
-        <Link className="btn" to="/login">login</Link>
+      {user && <FaUserCircle className="text-4xl mr-3"></FaUserCircle>}
+        {
+          user?
+           <Link onClick={handelLogOut} className="btn" >logOut</Link> 
+          :
+           <Link className="btn" to="/login">login</Link>
+        }
       </div>
     </div>
   );

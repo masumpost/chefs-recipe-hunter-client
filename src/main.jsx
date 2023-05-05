@@ -13,6 +13,7 @@ import Register from "./components/login/register/Register.jsx";
 import Body from "./components/body/Body.jsx";
 import AuthProvider from "./components/AuthProvider.jsx";
 import ViewDetails from "./components/body/viewdetails.jsx";
+import PrivateRoute from "./components/Layouts/privateRoute.jsx";
 
 const router = createBrowserRouter([
   {
@@ -38,7 +39,16 @@ const router = createBrowserRouter([
       },
       {
         path:"/vdetails",
-        element:<ViewDetails></ViewDetails>
+        element:<PrivateRoute><ViewDetails></ViewDetails></PrivateRoute>
+      }, 
+      {
+        path:"/vdetails/:id",
+        element:<PrivateRoute><ViewDetails></ViewDetails></PrivateRoute>,
+        loader:({params}) => fetch('https://chef-recipe-hunter-server-masumpost.vercel.app/viewresi').then(res => { 
+          const data = res.find(n => n.id === params.id)
+          return data;
+        })
+        
       }
     ],
   },

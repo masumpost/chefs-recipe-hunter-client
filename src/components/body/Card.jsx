@@ -18,9 +18,9 @@ const Card = ({ chef }) => {
         <p>Number of recipes : {number_of_recipes}</p>
         <p>Likes : {likes}</p>
         <div className="card-actions justify-end">
-          <Link to='/vdetails'>
-              <button className="btn btn-primary">View Recipes</button>
-          </Link>
+              <button className="btn btn-primary">
+                <Link to="/vdetails">View Recipes</Link>
+              </button>
         </div>
       </div>
     </div>
